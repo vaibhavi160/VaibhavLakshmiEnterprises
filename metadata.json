@@ -1,0 +1,6 @@
+{
+  "name": "Maa Vaibhav Lakshmi Enterprises",
+  "description": "Authorized dealer & specialist applicator for Dr. Fixit, Sika construction chemicals and waterproofing services in Lucknow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

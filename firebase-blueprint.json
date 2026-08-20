@@ -1,0 +1,233 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Registered customer and administrator user profiles",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "description": "User email address" },
+        "name": { "type": "string", "description": "Full name of the user" },
+        "phone": { "type": "string", "description": "Primary contact number" },
+        "address": { "type": "string", "description": "Shipping street address" },
+        "city": { "type": "string", "description": "City of residence" },
+        "role": { "type": "string", "description": "'user' or 'admin'" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["uid", "email", "name", "role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Store chemical and paint catalog items",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Product unique identifier" },
+        "name": { "type": "string", "description": "Product title" },
+        "slug": { "type": "string", "description": "URL slug" },
+        "brand": { "type": "string", "description": "Brand manufacturer (Dr. Fixit, Sika, etc.)" },
+        "categoryId": { "type": "string", "description": "Referenced category ID" },
+        "price": { "type": "number", "description": "Selling price in INR" },
+        "originalPrice": { "type": "number", "description": "Original MRP price" },
+        "discountPercentage": { "type": "number", "description": "Discount percent" },
+        "offerText": { "type": "string", "description": "Admin promotional offer text" },
+        "isOfferActive": { "type": "boolean", "description": "Whether promotional offer is active" },
+        "stock": { "type": "number", "description": "Current inventory stock count" },
+        "minStockThreshold": { "type": "number", "description": "Low stock warning threshold" },
+        "sku": { "type": "string", "description": "Stock keeping unit code" },
+        "unit": { "type": "string", "description": "Pack packaging unit" },
+        "mainImage": { "type": "string", "description": "Primary image URL" },
+        "images": { "type": "array", "description": "Gallery image URLs" },
+        "description": { "type": "string", "description": "Product technical description" },
+        "specifications": { "type": "array", "description": "Key-value technical specs" },
+        "featured": { "type": "boolean", "description": "Featured on home page" },
+        "active": { "type": "boolean", "description": "Available for sale" },
+        "rating": { "type": "number", "description": "Customer average rating" },
+        "reviewCount": { "type": "number", "description": "Total review count" },
+        "usageAreas": { "type": "array", "description": "Application target areas" }
+      },
+      "required": ["id", "name", "brand", "categoryId", "price", "stock", "sku", "unit", "mainImage", "description", "active"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Product catalog categories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Category identifier" },
+        "name": { "type": "string", "description": "Category name" },
+        "slug": { "type": "string", "description": "Category slug" },
+        "description": { "type": "string", "description": "Category summary" },
+        "iconName": { "type": "string", "description": "Lucide icon identifier" },
+        "productCount": { "type": "number", "description": "Number of products" }
+      },
+      "required": ["id", "name", "slug"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer and contractor purchases",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Order identifier" },
+        "customerName": { "type": "string", "description": "Customer full name" },
+        "customerEmail": { "type": "string", "description": "Customer email" },
+        "customerPhone": { "type": "string", "description": "Customer phone" },
+        "address": { "type": "string", "description": "Delivery address" },
+        "city": { "type": "string", "description": "Delivery city" },
+        "pincode": { "type": "string", "description": "PIN code" },
+        "items": { "type": "array", "description": "Purchased items" },
+        "subtotal": { "type": "number", "description": "Order subtotal" },
+        "totalAmount": { "type": "number", "description": "Final paid amount" },
+        "discountAmount": { "type": "number", "description": "Discount applied" },
+        "discountCode": { "type": "string", "description": "Discount code used" },
+        "gstAmount": { "type": "number", "description": "GST amount" },
+        "shippingFee": { "type": "number", "description": "Shipping fee" },
+        "paymentMethod": { "type": "string", "description": "Payment method" },
+        "status": { "type": "string", "description": "Order status" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Update timestamp" }
+      },
+      "required": ["id", "customerName", "customerPhone", "address", "city", "pincode", "items", "totalAmount", "status", "createdAt"]
+    },
+    "ServiceItem": {
+      "title": "ServiceItem",
+      "description": "Specialized waterproofing and contractor application services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Service ID" },
+        "category": { "type": "string", "description": "Service category" },
+        "title": { "type": "string", "description": "Service title" },
+        "image": { "type": "string", "description": "Primary banner image" },
+        "images": { "type": "array", "description": "Gallery images" },
+        "description": { "type": "string", "description": "Detailed description" },
+        "features": { "type": "array", "description": "Key service features" },
+        "startingPrice": { "type": "string", "description": "Price per sq.ft or job" },
+        "warrantyPeriod": { "type": "string", "description": "Warranty duration" },
+        "duration": { "type": "string", "description": "Estimated duration" },
+        "active": { "type": "boolean", "description": "Whether service is available" }
+      },
+      "required": ["id", "category", "title", "image", "description", "features"]
+    },
+    "ServiceQuery": {
+      "title": "ServiceQuery",
+      "description": "Site inspection and service estimate inquiries",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Query ID" },
+        "customerName": { "type": "string", "description": "Client name" },
+        "customerPhone": { "type": "string", "description": "Contact number" },
+        "customerEmail": { "type": "string", "description": "Email address" },
+        "serviceType": { "type": "string", "description": "Type of service requested" },
+        "location": { "type": "string", "description": "Site address in Lucknow" },
+        "requirement": { "type": "string", "description": "Detailed problem requirement" },
+        "status": { "type": "string", "description": "Status" },
+        "internalNotes": { "type": "string", "description": "Admin inspection notes" },
+        "createdAt": { "type": "string", "description": "Timestamp" }
+      },
+      "required": ["id", "customerName", "customerPhone", "serviceType", "location", "requirement", "status", "createdAt"]
+    },
+    "CustomerDiscount": {
+      "title": "CustomerDiscount",
+      "description": "Personalized customer coupons and discount codes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Discount ID" },
+        "code": { "type": "string", "description": "Voucher promo code" },
+        "customerName": { "type": "string", "description": "Target customer name" },
+        "customerPhone": { "type": "string", "description": "Target phone" },
+        "customerEmail": { "type": "string", "description": "Target email" },
+        "discountType": { "type": "string", "description": "'percentage' or 'fixed'" },
+        "discountValue": { "type": "number", "description": "Discount value" },
+        "minOrderAmount": { "type": "number", "description": "Minimum order value" },
+        "description": { "type": "string", "description": "Offer description" },
+        "expiryDate": { "type": "string", "description": "Expiry ISO date" },
+        "isActive": { "type": "boolean", "description": "Active status" },
+        "usageCount": { "type": "number", "description": "Times used" },
+        "createdAt": { "type": "string", "description": "ISO date created" }
+      },
+      "required": ["id", "code", "customerName", "discountType", "discountValue", "isActive", "createdAt"]
+    },
+    "Conversation": {
+      "title": "Conversation",
+      "description": "Live chat and technical inquiry threads",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Conversation ID" },
+        "userName": { "type": "string", "description": "Customer name" },
+        "userEmail": { "type": "string", "description": "Customer email" },
+        "userPhone": { "type": "string", "description": "Customer phone" },
+        "lastMessage": { "type": "string", "description": "Last message snippet" },
+        "lastMessageTime": { "type": "string", "description": "Timestamp string" },
+        "unreadCount": { "type": "number", "description": "Unread count for customer" },
+        "adminUnreadCount": { "type": "number", "description": "Unread count for admin" },
+        "status": { "type": "string", "description": "'active' or 'resolved'" },
+        "messages": { "type": "array", "description": "Chronological list of chat messages" }
+      },
+      "required": ["id", "userName", "status", "messages"]
+    },
+    "AdminSettings": {
+      "title": "AdminSettings",
+      "description": "Store settings and business details",
+      "type": "object",
+      "properties": {
+        "businessName": { "type": "string" },
+        "brandName": { "type": "string" },
+        "tagline": { "type": "string" },
+        "primaryPhone": { "type": "string" },
+        "secondaryPhone": { "type": "string" },
+        "whatsappNumber": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "gstNumber": { "type": "string" },
+        "taxRate": { "type": "number" },
+        "shippingFee": { "type": "number" },
+        "freeShippingThreshold": { "type": "number" },
+        "lowStockThreshold": { "type": "number" },
+        "businessHoursStart": { "type": "number" },
+        "businessHoursEnd": { "type": "number" },
+        "businessDays": { "type": "array" },
+        "businessHoursText": { "type": "string" },
+        "technicianName": { "type": "string" },
+        "technicianRole": { "type": "string" }
+      },
+      "required": ["businessName", "brandName", "primaryPhone", "address"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles collection"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Products catalog collection"
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Product categories collection"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Orders collection"
+    },
+    "/services/{serviceId}": {
+      "schema": "ServiceItem",
+      "description": "Services portfolio collection"
+    },
+    "/serviceQueries/{queryId}": {
+      "schema": "ServiceQuery",
+      "description": "Service queries and inspection requests"
+    },
+    "/customerDiscounts/{discountId}": {
+      "schema": "CustomerDiscount",
+      "description": "Personalized discounts collection"
+    },
+    "/conversations/{conversationId}": {
+      "schema": "Conversation",
+      "description": "Chat conversations collection"
+    },
+    "/settings/{settingId}": {
+      "schema": "AdminSettings",
+      "description": "Store settings collection"
+    }
+  }
+}

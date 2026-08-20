@@ -1,0 +1,21 @@
+# Robots.txt for Maa Vaibhavi Lakshmi Construction
+# Lucknow, Uttar Pradesh, India
+
+User-agent: *
+Allow: /
+Allow: /#products
+Allow: /#services
+Allow: /#quote
+Allow: /#about
+Allow: /#dealers
+Allow: /favicon.svg
+
+# Disallow administrative and private user endpoints
+Disallow: /admin
+Disallow: /api/
+
+# Crawl-delay for optimal indexing
+Crawl-delay: 1
+
+# XML Sitemap Location
+Sitemap: /sitemap.xml

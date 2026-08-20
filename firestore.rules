@@ -1,0 +1,79 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.email == 'kesharivaibhavi8@gmail.com' ||
+        request.auth.token.email == 'rajeshwar781@gmail.com' ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // Users Collection (User Profiles)
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Products Collection
+    match /products/{productId} {
+      allow read, write: if true;
+    }
+
+    // Categories Collection
+    match /categories/{categoryId} {
+      allow read, write: if true;
+    }
+
+    // Orders Collection
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+
+    // Conversations & Messages (Chatting)
+    match /conversations/{conversationId} {
+      allow read, write: if true;
+    }
+
+    // Service Items (Waterproofing, Painting, Flooring Services)
+    match /services/{serviceId} {
+      allow read, write: if true;
+    }
+
+    // Service Queries (Quotes and Site Inspections)
+    match /serviceQueries/{queryId} {
+      allow read, write: if true;
+    }
+
+    // Customer Discounts / Coupons
+    match /customerDiscounts/{discountId} {
+      allow read, write: if true;
+    }
+
+    // Financial Records (Revenue & Expenses)
+    match /financials/{recordId} {
+      allow read, write: if true;
+    }
+
+    // Product Reviews
+    match /reviews/{reviewId} {
+      allow read, write: if true;
+    }
+
+    // Store Settings
+    match /settings/{settingId} {
+      allow read, write: if true;
+    }
+  }
+}

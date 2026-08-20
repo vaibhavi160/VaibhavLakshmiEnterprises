@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Homepage & Brand Overview -->
+  <url>
+    <loc>https://ais-pre-2psf4o3hm5cgs64xqj5veo-844279947682.asia-east1.run.app/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Products & Construction Chemicals Catalog -->
+  <url>
+    <loc>https://ais-pre-2psf4o3hm5cgs64xqj5veo-844279947682.asia-east1.run.app/#products</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Specialized Waterproofing & Painting Services -->
+  <url>
+    <loc>https://ais-pre-2psf4o3hm5cgs64xqj5veo-844279947682.asia-east1.run.app/#services</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Interactive Project Quote & Estimation Calculator -->
+  <url>
+    <loc>https://ais-pre-2psf4o3hm5cgs64xqj5veo-844279947682.asia-east1.run.app/#quote</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Company & Store Contact in Chinhat Lucknow -->
+  <url>
+    <loc>https://ais-pre-2psf4o3hm5cgs64xqj5veo-844279947682.asia-east1.run.app/#about</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Authorized Brand Partnerships (Dr. Fixit, Sika, Nippon Paint, Birla Opus) -->
+  <url>
+    <loc>https://ais-pre-2psf4o3hm5cgs64xqj5veo-844279947682.asia-east1.run.app/#dealers</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
